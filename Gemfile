@@ -1,38 +1,24 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'blacklight'
+gem 'hydra-head', '~> 6.0.0'
 
+# We will assume that you're using sqlite3 for testing/demo,
+# but in a production setup you probably want to use a real sql database like mysql or postgres
 gem 'sqlite3'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
+# Rails uses asset pipeline.  You will need these gems for used your assets in development.
+# However, you won't need them in production because they will be precompiled.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'jquery-rails'
 end
 
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+# You will probably want to use these to run the tests you write for your hydra head
+# For testing with rspec
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'jettywrapper'
+end
